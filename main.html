@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- to css -->
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <script>
+        fetch('https://script.google.com/macros/s/AKfycbwu5f7avH1Pg8SBq_08NjrafDQk_z9j671giokm7K360eE7Mg-eZZbpj-5u55KUGXHVGg/exec')
+        .then(res =>{
+            return res.json();
+        })
+        .then(data => {
+            responseData = data.data[0];
+            console.log(responseData);
+
+            // Mengakses elemen HTML menggunakan ID
+            const resultElement = document.getElementById('result');
+            
+            // Mengubah konten elemen HTML dengan nilai variabel
+            resultElement.textContent = `${responseData}`;            
+
+            if (responseData<1){
+                document.getElementById('regis_button').style.visibility = "hidden";
+                document.getElementById('keterangan').style.visibility = "visible";
+            }
+        })
+        .catch(error =>console.log(error));
+    </script>
+
+    <div class="form-body">
+        <div class="form-holder">
+            <div class="form-content">
+                <div class="form-items">
+                    <div id="information">
+                        <h3 style="text-align: center;">Cek Ketersediaan Rumah Singgah Pasien</h3>
+                        <p style="text-align: center;">IZI x Madani</p>
+                    </div>
+                    <br>
+                    <h5 style="text-align: center;">Jumlah Kamar Tersedia</h5>
+                    <h5 id="result" style="text-align: center;">Memuat...</h5>
+                    
+                    <div id="regis_button" class="registration" style="text-align: center;" class="form-button mt-3">
+                        <p id="keterangan" style="visibility: hidden; text-align: center;">Mohon maaf, kamar sudah penuh. Peserta tidak dapat melakukan pendaftaran kamar. </p>
+                        <a href="https://forms.gle/D6FvSu3s4JpFnwwZ8" class="btn btn-info" role="button">Daftar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+  </body>
+</html>
+
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
